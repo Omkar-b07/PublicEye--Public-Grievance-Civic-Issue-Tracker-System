@@ -1,0 +1,14 @@
+# Public-Eye Server Backup Config
+services:
+  - type: web
+    name: public-eye-backend
+    env: node
+    rootDir: backend
+    region: ohio
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: MONGODB_URI
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
